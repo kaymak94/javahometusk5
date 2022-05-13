@@ -10,17 +10,19 @@ public class SQRServiceTest {
 
     @ParameterizedTest
     @CsvSource({
-            "6500,71",
-            "100,1",
-            "9801,90",
-            "0,0",
-            "100000,90",
-            "-1000,0"
+            "700,6750,56",
+            "100,200,5",
+            "50,99,0",
+            "100,9801,90",
+            "9802,100000,0",
+            "0,0,0",
+            "-1000,-1,0"
+
     })
-    public void testLimitExpected(int limit, int expected) {
+    public void testLimitExpected(int min, int max, int expected) {
         SQRService service = new SQRService();
 
-        int actual = service.amountMathSquare(limit);
+        int actual = service.amountMathSquare(min, max);
         Assertions.assertEquals(expected, actual);
     }
 }
